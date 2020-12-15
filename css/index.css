@@ -189,3 +189,6 @@ h1 {
 .question:focus-within .arrow {
     transform: rotate(180deg);
 }
+.wrapper {
+    color: white;
+}
