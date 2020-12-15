@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: linear-gradient(to top, hsl(240, 73%, 66%), hsl(273, 75%, 66%));
+    background-size: cover;
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -99;
+
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 12px;
+    color: hsl(238, 29%, 16%);
+}
+h1 {
+    font-size: 2.2em;
+}
+.box {
+    display: grid;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 2rem 4rem rgba(29, 30, 53, .7);
+}
+.wrap {
+    position: relative;
+}
+@media screen and (min-width: 600px) {
+    .box {
+        width: 750px;
+        height: 400px;
+        max-height: 400px;
+        grid-template-columns: 1fr 375px;
+        grid-template-areas: "image faq";
+        position: relative;
+        overflow: hidden;
+        /* ############################################## */
+
+    }
+    .image {
+        background: white;
+        max-height: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .faq {
+        margin-right: 40px;
+        position: relative;
+
+    }
+    .img-desktop {
+        width: 400px;
+        position: relative;
+        top: 50px;
+        left: -60px;
+    }
+    .img-desktop:nth-child(2){
+        width: 600px;
+        position: relative;
+        top: -320px;
+        left: -200px;
+    }
+    .img-mobile, .img-mobile-shadow{
+        display: none;
+    }
+    .float-box {
+        position: absolute;
+        z-index: 2;
+        left: -100px;
+        top: 150px;
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    .move {
+        transform: translateX(-30px);
+    
+    }
+    /*  ############################################################# */
+}
+@media screen and (max-width: 600px) {
+    .box {
+        width: 350px;
+        margin-top: 120px;
+        grid-template-rows: 120px auto;
+        grid-template-areas: "image" "faq";
+    }
+    .float-box {
+        display: none;
+    }
+    .img-desktop {
+        display: none;
+    }
+    .image {
+        text-align: center;
+    }
+    .img-mobile {
+        width: 280px;
+        position: relative;
+        top: -110px;
+        left: -10px;
+        z-index: 2;
+    }
+    .img-mobile-shadow {
+        width: 280px;
+        position: relative;
+        top: -210px;
+        left: 0px;
+        z-index: 1;
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
+.image {
+    grid-area: image; 
+}
+.faq {
+    grid-area: faq;
+    padding: 20px;
+    align-self: start;
+}
+
+.question {
+    color: currentColor;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.question:hover {
+    color: hsl(14, 88%, 65%);
+}
+.question:focus-within {
+    font-weight: bolder;
+}
+.question:focus-within::after {
+    display: block;
+    padding: 0;
+    color: hsl(240, 6%, 50%);
+    font-weight: normal;
+    padding: 10px 0 0 0 ;
+    font-size: 12px;
+    line-height: 1.2em;
+}
+#question1:focus-within::after {
+    content: 'You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.';
+}
+#question2:focus-within::after {
+    content: 'No more than 2GB. All files in your account must fit  your allotted storage space.';
+}
+#question3:focus-within::after {
+    content: 'Click “Forgot password” from the login page or “Change password” from your  profile page. A reset link will be emailed to you.';
+}
+#question4:focus-within::after {
+    content: 'Yes! Send us a message and we’ll process your request no questions asked.';
+}
+#question5:focus-within::after {
+    content: 'Chat and email support is available 24/7. Phone lines are open during normal business hours.';
+}
+.arrow {
+    float: right;
+    transform: translateY(87px);
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.answer {
+    display: none;
+}
+.divider {
+    height: 1px;
+    width: 100%;
+    background-color: hsl(240, 6%, 50%);
+    border: none;
+    opacity: 0.5;
+    margin: 20px 0 20px 0;
+}
+.question:focus-within .arrow {
+    transform: rotate(180deg);
+}
